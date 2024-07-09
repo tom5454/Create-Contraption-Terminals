@@ -1,0 +1,39 @@
+{
+	"schemaVersion": 1,
+	"id": "createcontraptionterminals",
+	"version": "${version}",
+	"name": "Create Contraption Terminals",
+	"description": "Allows Tom's Simple Storage Terminals to work on Create contraptions.",
+	"authors": [
+		"tom5454"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/tom5454/Create-Contraption-Terminals",
+		"issues": "https://github.com/tom5454/Create-Contraption-Terminals/issues"
+	},
+	"license": "MIT",
+	"icon": "createcontraptionterminals.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.tom.createterminal.CreateTerminals"
+		],
+		"client": [
+			"com.tom.createterminal.client.CreateTerminalsClient"
+		],
+		"fabric-datagen": [
+			"com.tom.createterminal.data.CCTDataGenerator"
+		]
+	},
+	"mixins": [
+		"cct.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.14",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*",
+		"toms_storage": ">=1.6.0"
+	}
+}

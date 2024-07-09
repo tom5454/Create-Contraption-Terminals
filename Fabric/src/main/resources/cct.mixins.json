@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.tom.createterminal.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+	"CraftingTerminalBlockEntityAccessor",
+  	"StorageTerminalBlockEntityAccessor"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
