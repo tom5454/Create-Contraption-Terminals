@@ -1,0 +1,22 @@
+{
+  "type": "forge",
+  "name": "createcontraptionterminals-1.20",
+  "mcVer": "1.20",
+  "verId": "1.20.1",
+  "display": "[Forge] Create Contraption Terminals 1.20",
+  "git": "Create-Contraption-Terminals/Forge",
+  "subver": [
+	"1.20.1"
+  ],
+  "j17": true,
+  "depProjects": [
+    {
+      "slug": "create",
+      "type": "requiredDependency"
+    },
+    {
+      "slug": "toms-storage",
+      "type": "requiredDependency"
+    }
+  ]
+}
