@@ -1,0 +1,7 @@
+{
+  "createcontraptionterminals.ponder.terminals.header": "在机械动力中使用汤姆的简易存储终端",
+  "createcontraptionterminals.ponder.terminals.text_1": "终端可以轻松访问物品保险库中的内容",
+  "createcontraptionterminals.ponder.terminals.text_2": "终端也可以在动态结构上工作",
+  "createcontraptionterminals.ponder.terminals.text_3": "终端允许访问整个动态结构的库存",
+  "tooltip.cct.worksOnContraptions": "适用于机械动力动态结构"
+}
