@@ -4,7 +4,7 @@
   "mcVer": "1.20",
   "verId": "1.20.1",
   "display": "[Fabric] Create Contraption Terminals 1.20",
-  "git": "Create-Contraption-Terminals/Fabric",
+  "onGit": true,
   "subver": [
 	"1.20.1"
   ],
