@@ -16,8 +16,8 @@ public class CraftingTerminalInstance extends CraftingTerminalBlockEntity implem
 	}
 
 	@Override
-	public void pushOrDrop(ItemStack st) {
-		ICraftingTerminalImpl.super.pushOrDrop(st);
+	public void dropItem(ItemStack stack) {
+		ICraftingTerminalImpl.super.dropItem(stack);
 	}
 
 	@Override

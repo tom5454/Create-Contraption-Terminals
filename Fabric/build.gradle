@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.5-SNAPSHOT'
+	id 'fabric-loom' version '1.8-SNAPSHOT'
 	id 'maven-publish'
 	
 }
@@ -142,16 +142,12 @@ dependencies {
 		exclude(group: "net.fabricmc.fabric")
 	}
 	
-	modImplementation("com.simibubi.create:create-fabric-${project.minecraft_version}:${project.create_version}+mc${project.minecraft_version}") {
-		exclude(group: "net.fabricmc.fabric")
-	}
-	for (String module in port_lib_modules.split(",")) {
-        modApi("io.github.fabricators_of_create.Porting-Lib:$module:$port_lib_version")
+	modImplementation("com.simibubi.create:create-fabric-$minecraft_version:$create_version") {
+    	exclude(group: "net.fabricmc.fabric-api")
+    	exclude(group: "net.fabricmc.fabric")
     }
-	modImplementation("com.jozufozu.flywheel:flywheel-fabric-$flywheel_minecraft_version:$flywheel_version") {
-		exclude(group: "net.fabricmc.fabric")
-	}
-    modImplementation("com.tom5454.toms_storage:TomsStorageFabric-1.20:1.6.5") {
+   
+    modImplementation("com.tom5454.toms_storage:TomsStorageFabric-1.20:1.7.0") {
 		exclude(group: "net.fabricmc.fabric")
 		exclude(group: "me.shedaniel")
 		exclude(group: "dev.architectury")

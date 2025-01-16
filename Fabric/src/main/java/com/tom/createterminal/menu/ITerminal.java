@@ -14,7 +14,7 @@ import com.tom.storagemod.util.Util;
 
 public interface ITerminal extends MenuProvider {
 	StoredItemStack pushStack(StoredItemStack stack);
-	void pushOrDrop(ItemStack st);
+	void dropItem(ItemStack st);
 	void updateServer();
 	boolean canInteractWith(Player player);
 
@@ -23,12 +23,8 @@ public interface ITerminal extends MenuProvider {
 	public static interface ITerminalImpl extends ITerminal {
 
 		@Override
-		public default void pushOrDrop(ItemStack st) {
-			if(st.isEmpty())return;
-			StoredItemStack st0 = pushStack(new StoredItemStack(st));
-			if(st0 != null) {
-				getContraption().popItem(st0.getActualStack());
-			}
+		public default void dropItem(ItemStack st) {
+			getContraption().popItem(st);
 		}
 
 		@Override

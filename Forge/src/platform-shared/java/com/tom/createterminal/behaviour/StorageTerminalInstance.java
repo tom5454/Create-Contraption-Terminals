@@ -16,8 +16,8 @@ public class StorageTerminalInstance extends StorageTerminalBlockEntity implemen
 	}
 
 	@Override
-	public void pushOrDrop(ItemStack st) {
-		ITerminalImpl.super.pushOrDrop(st);
+	public void dropItem(ItemStack stack) {
+		ITerminalImpl.super.dropItem(stack);
 	}
 
 	@Override

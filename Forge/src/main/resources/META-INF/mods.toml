@@ -57,7 +57,7 @@ Allows Tom's Simple Storage Terminals to work on Create contraptions.
 [[dependencies.createcontraptionterminals]]
     modId="toms_storage"
     mandatory=true
-    versionRange="[1.6.0,)"
+    versionRange="[1.7.0,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.createcontraptionterminals]]
