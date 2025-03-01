@@ -34,7 +34,7 @@ public interface ITerminal extends MenuProvider {
 			if(ac.isUpdateItems()) {
 				var items = ac.getItems();
 				items.clear();
-				IItemHandler itemHandler = getContraption().getContraption().getSharedInventory();
+				IItemHandler itemHandler = getContraption().getContraption().getStorage().getAllItems();
 				ac.setItemHandler(itemHandler);
 				if(itemHandler != null) {
 					IntStream.range(0, itemHandler.getSlots()).mapToObj(itemHandler::getStackInSlot).filter(s -> !s.isEmpty()).

@@ -2,7 +2,7 @@ package com.tom.createterminal.behaviour;
 
 import java.util.function.Function;
 
-import com.simibubi.create.content.contraptions.behaviour.MovementBehaviour;
+import com.simibubi.create.api.behaviour.movement.MovementBehaviour;
 import com.simibubi.create.content.contraptions.behaviour.MovementContext;
 
 import com.tom.createterminal.menu.ITerminal;

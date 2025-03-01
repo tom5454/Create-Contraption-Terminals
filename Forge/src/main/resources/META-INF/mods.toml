@@ -51,7 +51,7 @@ Allows Tom's Simple Storage Terminals to work on Create contraptions.
 [[dependencies.createcontraptionterminals]]
     modId="create"
     mandatory=true
-    versionRange="[0.5.0.e,0.6.0)"
+    versionRange="[6.0.0,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.createcontraptionterminals]]
@@ -60,12 +60,6 @@ Allows Tom's Simple Storage Terminals to work on Create contraptions.
     versionRange="[1.7.0,)"
     ordering="NONE"
     side="BOTH"
-[[dependencies.createcontraptionterminals]]
-    modId="flywheel"
-    mandatory=true
-    versionRange="[0.6,0.7)"
-    ordering="AFTER"
-    side="CLIENT"
 # Here's another dependency
 [[dependencies.createcontraptionterminals]]
     modId="minecraft"
