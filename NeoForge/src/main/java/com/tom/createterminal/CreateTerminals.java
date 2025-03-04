@@ -2,10 +2,11 @@ package com.tom.createterminal;
 
 import org.slf4j.Logger;
 
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.data.CreateRegistrate;
@@ -19,13 +20,11 @@ public class CreateTerminals {
 
 	private static CreateRegistrate registrate;
 
-	public CreateTerminals() {
-		// Register the setup method for modloading
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-		// Register the doClientStuff method for modloading
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+	public CreateTerminals(ModContainer mc, IEventBus bus) {
+		bus.addListener(this::setup);
+		bus.addListener(this::doClientStuff);
 
-		registrate = CreateRegistrate.create(MODID).registerEventListeners(FMLJavaModLoadingContext.get().getModEventBus());
+		registrate = CreateRegistrate.create(MODID).registerEventListeners(bus);
 
 		Registration.register();
 	}

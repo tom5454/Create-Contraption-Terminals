@@ -183,7 +183,7 @@ dependencies {
   	implementation "curse.maven:the-one-probe-245211:5836106"
   	implementation "curse.maven:jade-324717:6011258"
   	
-  	implementation "com.tom5454.toms_storage:TomsStorage-121:2.1.1"
+  	implementation ("com.tom5454.toms_storage:TomsStorage-121:2.1.1"){ transitive = false }
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

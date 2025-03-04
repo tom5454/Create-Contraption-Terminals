@@ -43,13 +43,13 @@ public class ContraptionWorld {
 	public void setBE(BlockEntity be) {
 		be.setLevel(context.world);
 		if (context.blockEntityData != null)
-			be.load(context.blockEntityData);
+			be.loadWithComponents(context.blockEntityData, context.world.registryAccess());
 		this.be = be;
 	}
 
 	public void saveBE() {
 		if (!context.world.isClientSide && be != null) {
-			setNbt(be.saveWithoutMetadata());
+			setNbt(be.saveWithoutMetadata(context.world.registryAccess()));
 		}
 	}
 

@@ -4,10 +4,9 @@ import java.util.function.BiConsumer;
 
 import net.createmod.ponder.foundation.PonderIndex;
 import net.minecraft.data.DataGenerator;
-
-import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import com.simibubi.create.Create;
 import com.tterrag.registrate.providers.ProviderType;
@@ -15,7 +14,7 @@ import com.tterrag.registrate.providers.ProviderType;
 import com.tom.createterminal.CreateTerminals;
 import com.tom.createterminal.client.ClientRegistration;
 
-@Mod.EventBusSubscriber(modid = CreateTerminals.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = CreateTerminals.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
 
 	@SubscribeEvent

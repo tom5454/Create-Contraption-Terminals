@@ -1,12 +1,12 @@
 {
-  "type": "forge",
-  "name": "createcontraptionterminals-1.20",
-  "mcVer": "1.20",
-  "verId": "1.20.1",
-  "display": "[Forge] Create Contraption Terminals 1.20",
+  "type": "neoforge",
+  "name": "createcontraptionterminals-1.21",
+  "mcVer": "1.21",
+  "verId": "1.21.1",
+  "display": "[NeoForge] Create Contraption Terminals 1.21",
   "onGit": true,
   "subver": [
-	"1.20.1"
+	"1.21.1"
   ],
   "j17": true,
   "depProjects": [

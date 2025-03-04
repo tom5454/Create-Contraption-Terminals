@@ -8,7 +8,7 @@ import com.simibubi.create.infrastructure.ponder.AllCreatePonderTags;
 
 import com.tom.createterminal.CreateTerminals;
 import com.tom.storagemod.Content;
-import com.tom.storagemod.util.GameObject;
+import com.tom.storagemod.platform.GameObject;
 
 public class CCTPonderPlugin implements PonderPlugin {
 

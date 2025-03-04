@@ -5,22 +5,26 @@ import java.util.Map;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-import net.minecraftforge.items.IItemHandler;
-
-import com.tom.storagemod.tile.StorageTerminalBlockEntity;
-import com.tom.storagemod.util.StoredItemStack;
+import com.tom.storagemod.block.entity.StorageTerminalBlockEntity;
+import com.tom.storagemod.inventory.StoredItemStack;
 
 @Mixin(value = StorageTerminalBlockEntity.class, remap = false)
 public interface StorageTerminalBlockEntityAccessor {
 	@Accessor
-	Map<StoredItemStack, Long> getItems();
-
-	@Accessor
-	void setItemHandler(IItemHandler ih);
+	void setItems(Map<StoredItemStack, StoredItemStack> v);
 
 	@Accessor
 	boolean isUpdateItems();
 
 	@Accessor
 	void setUpdateItems(boolean v);
+
+	@Accessor
+	long getChangeTracker();
+
+	@Accessor
+	void setChangeTracker(long v);
+
+	@Accessor
+	void setChangeCount(int v);
 }

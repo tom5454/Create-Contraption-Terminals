@@ -2,9 +2,11 @@ package com.tom.createterminal.behaviour;
 
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 import com.tom.createterminal.menu.ITerminal.ICraftingTerminalImpl;
-import com.tom.storagemod.tile.CraftingTerminalBlockEntity;
+import com.tom.storagemod.block.entity.CraftingTerminalBlockEntity;
+import com.tom.storagemod.inventory.StoredItemStack;
 
 public class CraftingTerminalInstance extends CraftingTerminalBlockEntity implements ICraftingTerminalImpl {
 	private ContraptionWorld world;
@@ -26,8 +28,18 @@ public class CraftingTerminalInstance extends CraftingTerminalBlockEntity implem
 	}
 
 	@Override
-	public boolean canInteractWith(Player player) {
-		return ICraftingTerminalImpl.super.canInteractWith(player);
+	public boolean canInteractWith(Player player, boolean menuCheck) {
+		return ICraftingTerminalImpl.super.canInteractWith(player, menuCheck);
+	}
+
+	@Override
+	public StoredItemStack pullStack(StoredItemStack stack, long max) {
+		return ICraftingTerminalImpl.super.pullStack(stack, max);
+	}
+
+	@Override
+	public StoredItemStack pushStack(StoredItemStack stack) {
+		return ICraftingTerminalImpl.super.pushStack(stack);
 	}
 
 	@Override
@@ -44,5 +56,10 @@ public class CraftingTerminalInstance extends CraftingTerminalBlockEntity implem
 	@Override
 	public void setChanged() {
 		world.saveBE();
+	}
+
+	@Override
+	public Level getLevel0() {
+		return level;
 	}
 }
