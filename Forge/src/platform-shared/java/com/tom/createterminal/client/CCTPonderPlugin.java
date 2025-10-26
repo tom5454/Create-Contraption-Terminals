@@ -19,7 +19,7 @@ public class CCTPonderPlugin implements PonderPlugin {
 
 	@Override
 	public void registerScenes(PonderSceneRegistrationHelper<ResourceLocation> helper) {
-		PonderSceneRegistrationHelper<GameObject<?>> HELPER = helper.withKeyFunction(GameObject::getId);
+		PonderSceneRegistrationHelper<GameObject<?>> HELPER = helper.withKeyFunction(CreateTerminals::getGameObjectID);
 
 		HELPER.forComponents(Content.terminal, Content.craftingTerminal)
 		.addStoryBoard("terminal", PonderScenes::terminals, AllCreatePonderTags.LOGISTICS);

@@ -33,7 +33,7 @@ public interface ITerminal extends MenuProvider {
 			if(ac.isUpdateItems()) {
 				var items = ac.getItems();
 				items.clear();
-				Storage<ItemVariant> itemHandler = getContraption().getContraption().getSharedInventory();
+				Storage<ItemVariant> itemHandler = getContraption().getContraption().getStorage().getAllItems();
 				ac.setItemHandler(itemHandler);
 				if(itemHandler != null) {
 					Util.stream(itemHandler.iterator()).

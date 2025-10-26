@@ -4,12 +4,14 @@ import java.lang.reflect.Field;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.function.BiConsumer;
 
+import net.createmod.ponder.foundation.PonderIndex;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator.Pack;
 
-import com.simibubi.create.foundation.ponder.PonderLocalization;
+import com.simibubi.create.Create;
 import com.tterrag.registrate.providers.ProviderType;
 import com.tterrag.registrate.providers.RegistrateDataProvider;
 
@@ -36,6 +38,9 @@ public class CCTDataGenerator implements DataGeneratorEntrypoint {
 		ExistingFileHelper helper = ExistingFileHelper.withResources(paths);
 		Pack pack = generator.createPack();
 		CreateTerminals.registrate().setupDatagen(pack, helper);
-		PonderLocalization.provideRegistrateLang(CreateTerminals.registrate());
+		CreateTerminals.registrate().addDataGenerator(ProviderType.LANG, provider -> {
+			BiConsumer<String, String> langConsumer = provider::add;
+			PonderIndex.getLangAccess().provideLang(Create.ID, langConsumer);
+		});
 	}
 }

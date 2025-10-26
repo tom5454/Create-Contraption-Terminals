@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.8-SNAPSHOT'
+	id 'fabric-loom' version '1.10-SNAPSHOT'
 	id 'maven-publish'
 	
 }
@@ -26,6 +26,7 @@ repositories {
     maven { url = "https://mvn.devos.one/releases/" }
     maven { url = "https://mvn.devos.one/snapshots/" }
     maven { url = "https://maven.tterrag.com/" }
+    maven { url = "https://maven.createmod.net" } // Create, Ponder, Flywheel
     maven { url = "https://jitpack.io/" }
     maven {
         url 'https://www.cursemaven.com'
@@ -147,7 +148,7 @@ dependencies {
     	exclude(group: "net.fabricmc.fabric")
     }
    
-    modImplementation("com.tom5454.toms_storage:TomsStorageFabric-1.20:1.7.0") {
+    modImplementation("com.tom5454.toms_storage:TomsStorageFabric-1.20:1.7.1") {
 		exclude(group: "net.fabricmc.fabric")
 		exclude(group: "me.shedaniel")
 		exclude(group: "dev.architectury")
