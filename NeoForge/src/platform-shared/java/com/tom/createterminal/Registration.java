@@ -9,6 +9,7 @@ import com.tom.createterminal.behaviour.StorageTerminalInstance;
 import com.tom.createterminal.behaviour.TerminalBehaviour;
 import com.tom.createterminal.behaviour.TerminalInteraction;
 import com.tom.storagemod.Content;
+import com.tom.storagemod.api.MultiblockInventoryAPI;
 
 public class Registration {
 	private static final CreateRegistrate REGISTRATE = CreateTerminals.registrate();
@@ -26,6 +27,8 @@ public class Registration {
 
 		MovingInteractionBehaviour.REGISTRY.register(Content.terminal.get(), new TerminalInteraction(term));
 		MovingInteractionBehaviour.REGISTRY.register(Content.craftingTerminal.get(), new TerminalInteraction(cTerm));
+
+		MultiblockInventoryAPI.EVENT.register(VaultMultiblockDetector::checkVault);
 	}
 
 	public static void add(String key, String value) {
