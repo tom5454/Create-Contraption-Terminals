@@ -54,7 +54,7 @@ public class ContraptionWorld {
 	}
 
 	public void popItem(ItemStack actualStack) {
-		bh.dropItem(context, actualStack);
+		bh.collectOrDropItem(context, actualStack);
 	}
 
 	public boolean isValid() {

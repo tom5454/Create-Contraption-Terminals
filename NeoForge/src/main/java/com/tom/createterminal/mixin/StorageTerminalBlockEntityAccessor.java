@@ -2,16 +2,16 @@ package com.tom.createterminal.mixin;
 
 import java.util.Map;
 
+import com.tom.storagemod.inventory.TerminalItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
 import com.tom.storagemod.block.entity.StorageTerminalBlockEntity;
-import com.tom.storagemod.inventory.StoredItemStack;
 
 @Mixin(value = StorageTerminalBlockEntity.class, remap = false)
 public interface StorageTerminalBlockEntityAccessor {
 	@Accessor
-	void setItems(Map<StoredItemStack, StoredItemStack> v);
+	void setItems(Map<TerminalItemStack, TerminalItemStack> v);
 
 	@Accessor
 	boolean isUpdateItems();

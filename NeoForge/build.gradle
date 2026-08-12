@@ -180,7 +180,7 @@ dependencies {
   	implementation "curse.maven:the-one-probe-245211:5836106"
   	implementation "curse.maven:jade-324717:6011258"
   	
-  	implementation ("com.tom5454.toms_storage:TomsStorage-121:2.3.0"){ transitive = false }
+  	implementation ("com.tom5454.toms_storage:TomsStorage-121:2.4.1"){ transitive = false }
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
@@ -198,7 +198,7 @@ tasks.withType(ProcessResources).configureEach {
     ]
     inputs.properties replaceProperties
 
-    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
+    filesMatching(['META-INF/*.mods.toml', 'pack.mcmeta']) {
         expand replaceProperties + [project: project]
     }
 }

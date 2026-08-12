@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import com.tom.storagemod.inventory.TerminalItemStack;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -49,11 +50,13 @@ public interface ITerminal extends MenuProvider {
 				if (ac.getChangeTracker() != ct) {
 					ac.setChangeTracker(ct);
 					if (Config.get().runMultithreaded) {
-						ac.setItems(tr.streamWrappedStacks(true).collect(Collectors.groupingByConcurrent(Function.identity(), Util.reducingWithCopy(null, StoredItemStack::merge, StoredItemStack::new))));
+						ac.setItems(tr.streamWrappedStacks(true).map(TerminalItemStack::new)
+								.collect(Collectors.groupingByConcurrent(Function.identity(), Util.reducingWithCopy(null, TerminalItemStack::merge, TerminalItemStack::new))));
 					} else {
-						Map<StoredItemStack, StoredItemStack> items = new HashMap<>();
-						tr.streamWrappedStacks(false).forEach(s -> items.merge(s, s, StoredItemStack::merge));
-						items.replaceAll((k, v) -> new StoredItemStack(v));
+						Map<TerminalItemStack, TerminalItemStack> items = new HashMap<>();
+						tr.streamWrappedStacks(false).map(TerminalItemStack::new)
+								.forEach(s -> items.merge(s, s, TerminalItemStack::merge));
+						items.replaceAll((k, v) -> new TerminalItemStack(v));
 						ac.setItems(items);
 					}
 					ac.setChangeCount(getChangeCount() + 1);
