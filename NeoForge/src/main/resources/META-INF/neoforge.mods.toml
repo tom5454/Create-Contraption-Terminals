@@ -51,13 +51,13 @@ Allows Tom's Simple Storage Terminals to work on Create contraptions.
 [[dependencies.createcontraptionterminals]]
     modId="create"
     type="required"
-    versionRange="[6.0.0,)"
+    versionRange="[6.0.9,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.createcontraptionterminals]]
     modId="toms_storage"
     type="required"
-    versionRange="[2.3.0,)"
+    versionRange="[2.4.1,)"
     ordering="NONE"
     side="BOTH"
 # Here's another dependency
@@ -65,7 +65,7 @@ Allows Tom's Simple Storage Terminals to work on Create contraptions.
     modId="minecraft"
     type="required"
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
-    versionRange="[1.21,1.21.1]"
+    versionRange="1.21.1"
     ordering="NONE"
     side="BOTH"
 [[mixins]]

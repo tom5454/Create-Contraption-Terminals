@@ -2,11 +2,11 @@ package com.tom.createterminal.mixin;
 
 import java.util.Map;
 
-import com.tom.storagemod.inventory.TerminalItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
 import com.tom.storagemod.block.entity.StorageTerminalBlockEntity;
+import com.tom.storagemod.inventory.TerminalItemStack;
 
 @Mixin(value = StorageTerminalBlockEntity.class, remap = false)
 public interface StorageTerminalBlockEntityAccessor {
@@ -27,4 +27,10 @@ public interface StorageTerminalBlockEntityAccessor {
 
 	@Accessor
 	void setChangeCount(int v);
+
+	@Accessor
+	void setSlotCount(int v);
+
+	@Accessor
+	void setFreeCount(int v);
 }

@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import com.tom.storagemod.inventory.TerminalItemStack;
+import net.minecraft.util.Mth;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -19,6 +19,7 @@ import com.tom.createterminal.mixin.StorageTerminalBlockEntityAccessor;
 import com.tom.storagemod.Config;
 import com.tom.storagemod.inventory.IInventoryAccess.IInventoryChangeTracker;
 import com.tom.storagemod.inventory.StoredItemStack;
+import com.tom.storagemod.inventory.TerminalItemStack;
 import com.tom.storagemod.util.Util;
 import com.tom.storagemod.util.WorldStates;
 
@@ -49,16 +50,23 @@ public interface ITerminal extends MenuProvider {
 				long ct = tr.getChangeTracker(getLevel0());
 				if (ac.getChangeTracker() != ct) {
 					ac.setChangeTracker(ct);
+					Map<TerminalItemStack, TerminalItemStack> items;
 					if (Config.get().runMultithreaded) {
-						ac.setItems(tr.streamWrappedStacks(true).map(TerminalItemStack::new)
-								.collect(Collectors.groupingByConcurrent(Function.identity(), Util.reducingWithCopy(null, TerminalItemStack::merge, TerminalItemStack::new))));
+						items = tr.streamWrappedStacks(true).map(TerminalItemStack::new)
+								.collect(Collectors.groupingBy(Function.identity(), Util.reducingWithCopy(null, TerminalItemStack::merge, TerminalItemStack::new)));
 					} else {
-						Map<TerminalItemStack, TerminalItemStack> items = new HashMap<>();
+						items = new HashMap<>();
 						tr.streamWrappedStacks(false).map(TerminalItemStack::new)
-								.forEach(s -> items.merge(s, s, TerminalItemStack::merge));
+						.forEach(s -> items.merge(s, s, TerminalItemStack::merge));
 						items.replaceAll((k, v) -> new TerminalItemStack(v));
-						ac.setItems(items);
 					}
+					ac.setItems(items);
+					ac.setSlotCount(Mth.clamp(itemHandler.getSlots(), 0, Short.MAX_VALUE));
+					int empty = 0;
+					for(int i = 0;i<itemHandler.getSlots();i++) {
+						if(itemHandler.getStackInSlot(i).isEmpty())empty++;
+					}
+					ac.setFreeCount(Mth.clamp(empty, 0, Short.MAX_VALUE));
 					ac.setChangeCount(getChangeCount() + 1);
 				}
 				ac.setUpdateItems(false);
